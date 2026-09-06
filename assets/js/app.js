@@ -97,6 +97,14 @@ showOnUI(movieArray);
 function onMovieAdd(event) {
   event.preventDefault();
 
+  if (
+    !movieName.value.trim() ||
+    !movieImg.value.trim() ||
+    !movieDescripion.value.trim() ||
+    !movieRating.value
+  )
+    return;
+
   let newMovie = {
     id: crypto.randomUUID(),
     movieName: movieName.value.trim(),
@@ -170,9 +178,72 @@ function editMovie(ele) {
   updateBtn.classList.remove("d-none");
 }
 
+// update
+
+function onUpdateclick() {
+  let updateId = localStorage.getItem("editId");
+
+  if (
+    !movieName.value.trim() ||
+    !movieImg.value.trim() ||
+    !movieDescripion.value.trim() ||
+    !movieRating.value
+  )
+    return;
+
+  let newMovie = {
+    id: updateId,
+    movieName: movieName.value.trim(),
+    movieImg: movieImg.value.trim(),
+    description: movieDescripion.value.trim(),
+    rating: movieRating.value,
+  };
+
+  let getIndex = movieArray.findIndex((ele) => ele.id === updateId);
+  if (getIndex === -1) return;
+
+  movieArray[getIndex] = newMovie;
+  saveData();
+  movieForm.reset();
+  onToggleMovieModal();
+
+  let movieCard = document.getElementById(updateId);
+
+  movieCard.innerHTML = `
+              <div class="card-header">
+                        <div class="row">
+                            <div class="col-10">
+                                <h4 class="m-0">${newMovie.movieName}</h4>
+                            </div>
+                            <div class="col-2">
+                                <h5 class="m-0"><span class="badge ${setRating(newMovie.rating)}">${newMovie.rating}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body py-0">
+                        <figure class="m-0">
+                            <img src="${newMovie.movieImg}" alt="${newMovie.movieName}" title="${newMovie.movieName}">
+                            <figcaption>
+                                <h5>${newMovie.movieName}</h5>
+                                <p>${newMovie.description}</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between">
+                        <button onclick="editMovie(this)" class="btn btn-sm text-white net-sec-btn">Edit</button>
+                        <button class="btn btn-sm net-pri-btn">Remove</button>
+                    </div>
+  `;
+
+  localStorage.removeItem("editId");
+}
+
 showModelBtn.addEventListener("click", onToggleMovieModal);
 closeIcon.addEventListener("click", onToggleMovieModal);
 closeBtn.addEventListener("click", onToggleMovieModal);
 backdrop.addEventListener("click", onToggleMovieModal);
 
 movieForm.addEventListener("submit", onMovieAdd);
+updateBtn.addEventListener("click", onUpdateclick);
