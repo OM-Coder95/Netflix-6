@@ -10,7 +10,7 @@ const movieArray1 = [
   {
     id: "2",
     movieName: "Interstellar",
-    rating: 8.7,
+    rating: 6.5,
     movieImg: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
     description:
       "A team of explorers travels through a mysterious wormhole in space to find a new home for humanity."
@@ -26,7 +26,7 @@ const movieArray1 = [
   {
     id: "4",
     movieName: "Avatar",
-    rating: 7.9,
+    rating: 4.2,
     movieImg: "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
     description:
       "A former marine becomes part of the Na'vi world and must choose between following orders and protecting a new home."
@@ -42,7 +42,7 @@ const movieArray1 = [
   {
     id: "6",
     movieName: "Spider-Man: No Way Home",
-    rating: 8.2,
+    rating: 5.8,
     movieImg: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
     description:
       "Peter Parker asks Doctor Strange for help after his identity is revealed, but the spell opens the door to unexpected visitors."
@@ -58,7 +58,7 @@ const movieArray1 = [
   {
     id: "8",
     movieName: "Joker",
-    rating: 8.3,
+    rating: 4.7,
     movieImg: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
     description:
       "A troubled man struggling with society gradually descends into darkness and becomes a notorious criminal figure."
@@ -66,7 +66,7 @@ const movieArray1 = [
   {
     id: "9",
     movieName: "Dune",
-    rating: 8.0,
+    rating: 6.2,
     movieImg: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
     description:
       "A young nobleman must travel to a dangerous desert planet and protect his family while becoming part of an ancient prophecy."
@@ -82,7 +82,7 @@ const movieArray1 = [
   {
     id: "11",
     movieName: "The Batman",
-    rating: 7.8,
+    rating: 3.9,
     movieImg: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
     description:
       "Batman investigates a series of mysterious murders that reveal corruption and secrets hidden within Gotham City."
@@ -90,7 +90,7 @@ const movieArray1 = [
   {
     id: "12",
     movieName: "John Wick",
-    rating: 7.7,
+    rating: 6.8,
     movieImg: "https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
     description:
       "A legendary assassin returns to his violent past after criminals take away the last reminder of his beloved wife."
@@ -106,7 +106,7 @@ const movieArray1 = [
   {
     id: "14",
     movieName: "Black Panther",
-    rating: 7.3,
+    rating: 4.5,
     movieImg: "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
     description:
       "A young king returns home to the technologically advanced kingdom of Wakanda and must defend his throne from a powerful rival."
@@ -114,7 +114,7 @@ const movieArray1 = [
   {
     id: "15",
     movieName: "Doctor Strange",
-    rating: 7.5,
+    rating: 6.4,
     movieImg: "https://image.tmdb.org/t/p/w500/uGBVj3bEbCoqZa0AjsiIDwZiFeE.jpg",
     description:
       "After losing his ability to work as a surgeon, a brilliant doctor discovers the mystical arts and learns to protect the world."
@@ -130,7 +130,7 @@ const movieArray1 = [
   {
     id: "17",
     movieName: "Thor: Ragnarok",
-    rating: 7.9,
+    rating: 4.8,
     movieImg: "https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
     description:
       "Thor must escape an alien planet and stop a powerful enemy from destroying his home world of Asgard."
@@ -138,7 +138,7 @@ const movieArray1 = [
   {
     id: "18",
     movieName: "Mission: Impossible - Fallout",
-    rating: 7.7,
+    rating: 5.5,
     movieImg: "https://image.tmdb.org/t/p/w500/AkJQpZp9WoNdj7pLYsj1L3M3k0.jpg",
     description:
       "Ethan Hunt and his team race against time after a mission goes wrong and dangerous nuclear weapons fall into enemy hands."
@@ -146,7 +146,7 @@ const movieArray1 = [
   {
     id: "19",
     movieName: "Top Gun: Maverick",
-    rating: 8.2,
+    rating: 7.6,
     movieImg: "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1w0U0G.jpg",
     description:
       "A legendary fighter pilot returns to train a new generation of elite pilots for a dangerous mission."
@@ -154,7 +154,7 @@ const movieArray1 = [
   {
     id: "20",
     movieName: "Oppenheimer",
-    rating: 8.6,
+    rating: 4.3,
     movieImg: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
     description:
       "The story of scientist J. Robert Oppenheimer and his role in developing the world's first atomic bomb."
