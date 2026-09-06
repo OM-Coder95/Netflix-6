@@ -13,6 +13,9 @@ const movieImg = document.getElementById("movieImg");
 const movieDescripion = document.getElementById("movieDescripion");
 const movieRating = document.getElementById("movieRating");
 
+const submitBtn = document.getElementById("submitBtn");
+const updateBtn = document.getElementById("updateBtn");
+
 // Data
 
 let jsonArr = localStorage.getItem("movieArray");
@@ -54,7 +57,7 @@ function showOnUI(arr) {
   arr.forEach((ele) => {
     result += `
          <div class="col-md-3 mb-3">
-                <div class="card movieCard" id"${ele.id}">
+                <div class="card movieCard" id="${ele.id}">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-10">
@@ -77,7 +80,7 @@ function showOnUI(arr) {
                     </div>
 
                     <div class="card-footer d-flex justify-content-between">
-                        <button class="btn btn-sm text-white net-sec-btn">Edit</button>
+                        <button onclick="editMovie(this)" class="btn btn-sm text-white net-sec-btn">Edit</button>
                         <button class="btn btn-sm net-pri-btn">Remove</button>
                     </div>
                 </div>
@@ -116,7 +119,7 @@ function onMovieAdd(event) {
   div.className = `col-md-3 mb-3`;
 
   div.innerHTML = `
-  <div class="card movieCard" id"${newMovie.id}">
+  <div class="card movieCard" id="${newMovie.id}">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-10">
@@ -139,13 +142,32 @@ function onMovieAdd(event) {
                     </div>
 
                     <div class="card-footer d-flex justify-content-between">
-                        <button class="btn btn-sm text-white net-sec-btn">Edit</button>
+                        <button onclick="editMovie(this)" class="btn btn-sm text-white net-sec-btn">Edit</button>
                         <button class="btn btn-sm net-pri-btn">Remove</button>
                     </div>
                 </div>
   `;
 
   movieContainer.prepend(div);
+}
+
+// edit
+
+function editMovie(ele) {
+  let editId = ele.closest(".movieCard").id;
+  localStorage.setItem("editId", editId);
+  onToggleMovieModal();
+
+  let editObj = movieArray.find((ele) => ele.id === editId);
+  if (!editObj) return;
+
+  movieName.value = editObj.movieName;
+  movieImg.value = editObj.movieImg;
+  movieDescripion.value = editObj.description;
+  movieRating.value = editObj.rating;
+
+  submitBtn.classList.add("d-none");
+  updateBtn.classList.remove("d-none");
 }
 
 showModelBtn.addEventListener("click", onToggleMovieModal);
