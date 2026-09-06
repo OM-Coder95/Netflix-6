@@ -1,6 +1,17 @@
 const cl = console.log;
 
 const movieContainer = document.getElementById("movieContainer");
+const showModelBtn = document.getElementById("showModelBtn");
+const backdrop = document.getElementById("backdrop");
+const movieModal = document.getElementById("movieModal");
+const closeIcon = document.getElementById("closeIcon");
+const closeBtn = document.getElementById("closeBtn");
+
+const movieForm = document.getElementById("movieForm");
+const movieName = document.getElementById("movieName");
+const movieImg = document.getElementById("movieImg");
+const movieDescripion = document.getElementById("movieDescripion");
+const movieRating = document.getElementById("movieRating");
 
 // Data
 
@@ -9,6 +20,19 @@ let jsonArr = localStorage.getItem("movieArray");
 let movieArray = jsonArr ? JSON.parse(jsonArr) : [];
 
 // functions
+
+// show hide movieModal
+
+function onToggleMovieModal() {
+  movieModal.classList.toggle("active");
+  backdrop.classList.toggle("active");
+}
+
+// saveDataInLS
+
+function saveData() {
+  localStorage.setItem("movieArray", JSON.stringify(movieArray));
+}
 
 // setRating
 
@@ -64,3 +88,69 @@ function showOnUI(arr) {
 }
 
 showOnUI(movieArray);
+
+// Create
+
+function onMovieAdd(event) {
+  event.preventDefault();
+
+  let newMovie = {
+    id: crypto.randomUUID(),
+    movieName: movieName.value.trim(),
+    movieImg: movieImg.value.trim(),
+    description: movieDescripion.value.trim(),
+    rating: movieRating.value,
+  };
+
+  movieArray.unshift(newMovie);
+  saveData();
+  onToggleMovieModal();
+  movieForm.reset();
+
+  //   UI
+
+  let div = document.createElement("div");
+
+  div.id = newMovie.id;
+
+  div.className = `col-md-3 mb-3`;
+
+  div.innerHTML = `
+  <div class="card movieCard" id"${newMovie.id}">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-10">
+                                <h4 class="m-0">${newMovie.movieName}</h4>
+                            </div>
+                            <div class="col-2">
+                                <h5 class="m-0"><span class="badge ${setRating(newMovie.rating)}">${newMovie.rating}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body py-0">
+                        <figure class="m-0">
+                            <img src="${newMovie.movieImg}" alt="${newMovie.movieName}" title="${newMovie.movieName}">
+                            <figcaption>
+                                <h5>${newMovie.movieName}</h5>
+                                <p>${newMovie.description}</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between">
+                        <button class="btn btn-sm text-white net-sec-btn">Edit</button>
+                        <button class="btn btn-sm net-pri-btn">Remove</button>
+                    </div>
+                </div>
+  `;
+
+  movieContainer.prepend(div);
+}
+
+showModelBtn.addEventListener("click", onToggleMovieModal);
+closeIcon.addEventListener("click", onToggleMovieModal);
+closeBtn.addEventListener("click", onToggleMovieModal);
+backdrop.addEventListener("click", onToggleMovieModal);
+
+movieForm.addEventListener("submit", onMovieAdd);
